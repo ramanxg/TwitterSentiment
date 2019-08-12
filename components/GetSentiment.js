@@ -7,13 +7,14 @@ export default class GetSentiment extends Component {
         super(props)
         this.state = {
             text:'',
-            sentiment:'2.0',
-            analysis:'Neutral'
+            sentiment:'--',
+            analysis:'--'
         };
     }
 
     fetchSentimentHandler = ()  => {
         console.log("Finding Sentiment: " + this.state.text)
+        this.setState({sentiment:'Fetching...', analysis:'Fetching...'})
 
         const encodedValue = encodeURIComponent(this.state.text);
         console.log(`https://g-sentiment.herokuapp.com/?query=${encodedValue}`)
