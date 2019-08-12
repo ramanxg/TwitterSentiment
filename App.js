@@ -14,7 +14,6 @@ import {
   View,
   Text,
   TextInput,
-  StatusBar,
 } from 'react-native';
 import GetSentiment from './components/GetSentiment';
 
@@ -22,31 +21,42 @@ const App = () => {
 
   
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Find Out the Sentiments of a Topic on Twitter</Text>
-      <GetSentiment fetchSentiment={this.fetchSentimentHandler}></GetSentiment>
+    <View style={styles.back}>
+      <ScrollView style={styles.container}>
+        <Text style={styles.welcome}>Tweet Sentiments!</Text>
+        <GetSentiment fetchSentiment={this.fetchSentimentHandler}></GetSentiment>
+      </ScrollView>
     </View>
+    
     
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
+  back: {
+    backgroundColor: '#00aced',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex: 1,
+  },
+  container: {
+    marginVertical: 60,
+    elevation: 20,
+    marginHorizontal: 20,
+    backgroundColor: '#FFFFFF',
+    height: '90%',
+    width: '90%',
+    borderRadius: 15,
+    shadowOpacity: 0.8,
+    shadowRadius: 30,
+    shadowColor: '#005',
+    shadowOffset: { height: 30, width: 30 },
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 40,
     textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    marginTop: 10,
+    fontFamily: 'Helvetica Neue'
+  }
 
 });
 
