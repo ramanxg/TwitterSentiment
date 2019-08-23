@@ -17,13 +17,11 @@ export default class GetSentiment extends Component {
         this.setState({sentiment:'Fetching...', analysis:'Fetching...'})
 
         const encodedValue = encodeURIComponent(this.state.text);
-        console.log(`https://g-sentiment.herokuapp.com/?query=${encodedValue}`)
 
         fetch(`https://g-sentiment.herokuapp.com/?query=${encodedValue}`)
             .then(response => response.json())
             .then(json => {
                 console.log(JSON.stringify(json))
-                r = (json.sentiment).toFixed(4)
                 this.setState({sentiment:json.sentiment, analysis:json.prediction})
                 
             })

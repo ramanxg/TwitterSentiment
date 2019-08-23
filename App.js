@@ -6,14 +6,12 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  TextInput,
 } from 'react-native';
 import GetSentiment from './components/GetSentiment';
 
